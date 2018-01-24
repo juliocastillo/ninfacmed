@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Menu" table="menu">
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+      <sequence-generator sequence-name="menu_id_seq" allocation-size="1" initial-value="1"/>
+    </id>
+    <field name="texto" type="string" column="texto" length="30" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">Texto desplegado al usuario</option>
+      </options>
+    </field>
+    <field name="ruta" type="string" column="ruta" length="100" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">ruta de acceso a la opcion</option>
+      </options>
+    </field>
+    <field name="nivel" type="integer" column="nivel" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">nivel de la opcion del menu 1, 2 o 3</option>
+      </options>
+    </field>
+    <field name="activo" type="boolean" column="activo" nullable="true">
+      <options>
+        <option name="comment">bandera de activo o inactivo la opcion</option>
+      </options>
+    </field>
+    <field name="idSistema" type="integer" column="id_sistema" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">llave foranea del modulo o sistema del proyecto</option>
+      </options>
+    </field>
+    <field name="orden" type="integer" column="orden" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="comment">orden de despliegue en el menu</option>
+      </options>
+    </field>
+    <field name="textoNivelPadre" type="string" column="texto_nivel_padre" length="30" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">opcion del menu del que depende</option>
+      </options>
+    </field>
+    <field name="icono" type="string" column="icono" length="30" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">nombre del icono segun bootstrap</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

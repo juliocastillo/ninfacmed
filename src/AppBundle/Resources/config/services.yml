@@ -1,0 +1,7 @@
+services:
+    app.admin.menu:
+        class: AppBundle\Admin\MenuAdmin
+        arguments: [~, AppBundle\Entity\Menu, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Menu }
+        public: true
